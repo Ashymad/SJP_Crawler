@@ -50,9 +50,7 @@ class cURLCpp{
 
   static size_t write_data(void *contents, size_t size, size_t nmemb, IconvString & IS){
     try{
-      string asdf = string((char*)contents,nmemb);
-      cout << asdf << endl;
-      IS.append(asdf);
+      IS.append(string((char*)contents,nmemb));
     }
     catch (exception & e){
       cerr << "Error: in function write_data: " << e.what() << endl;
@@ -97,8 +95,10 @@ public:
       return true;
     }
     else{
-      string charset = substrBetween("charset=",IcStr,"\"",0);
+      string charset = substrBetween("charset=\"",IcStr,"\"",0);
+      cout << "Charset: " << charset << endl;
       IcStr.reencode(charset,"UTF-8");
+      cout << IcStr<< endl;
       _URL = URL;
       return true;
     }
@@ -224,6 +224,6 @@ int main(void){
   cupp.getPage("https://sjp.pl/zds");
   //cout << cupp.toStr() << endl;
   //file.close();
-  system("read -n 1");
+  //system("read -n 1");
   return 0;
 }
