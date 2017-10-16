@@ -1,4 +1,3 @@
-#include <iostream>
 #include "SJPCrawler.h"
 
 using namespace std;
