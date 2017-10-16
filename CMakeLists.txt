@@ -7,13 +7,15 @@ set(SOURCE_FILES
         src/main.cpp
         src/IconvString.cpp
         src/IconvString.h
+        src/cURLCpp.cpp
+        src/cURLCpp.h
+        src/SJPCrawler.cpp
+        src/SJPCrawler.h
+        src/stringhelpers.cpp
+        src/stringhelpers.h
 )
+
 add_executable(SJP_Crawler ${SOURCE_FILES})
-target_link_libraries(SJP_Crawler 
-        curl
-        iconv
-        sqlite3
-)
 
 if(UNIX AND NOT APPLE)
    # Linux
@@ -25,3 +27,8 @@ else()
    # Windows
    target_link_libraries(SJP_Crawler SQLiteCpp)
 endif()
+
+target_link_libraries(SJP_Crawler 
+        sqlite3
+        curl
+)

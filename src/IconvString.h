@@ -1,5 +1,6 @@
 #ifndef ICONVSTRING_H_INCLUDED
 #define ICONVSTRING_H_INCLUDED
+
 #include <string>
 #include <iconv.h>
 #include <iostream>

@@ -1,29 +1,7 @@
 #include "IconvString.h"
+#include "stringhelpers.h"
 
-int countInString(const IconvString & sourceString, const std::string & stringToFind){
-	int i{ 0 }, size{ static_cast<int>(stringToFind.size()) }, count{ 0 };
-	for (char c : sourceString){
-		if (c == stringToFind[i]){
-			i++;
-		}
-		else
-			i = 0;
-		if (i == size){
-			count++;
-			i = 0;
-		}
-	}
-	return count;
-}
-
-std::string substrBetween(const std::string & lhsstring, const IconvString & sourceString, const std::string & rhsstring, size_t beggining){
-    size_t startPos, endPos;
-
-    startPos = sourceString.find(lhsstring, beggining) + lhsstring.size();
-    endPos = sourceString.find(rhsstring, startPos);
-    return sourceString.substr(startPos, endPos - startPos);
-
-}
+using namespace std;
 
 std::ostream & operator<<(std::ostream & os, const IconvString & ic){
     for (const char c : ic)
