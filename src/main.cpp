@@ -1,7 +1,5 @@
 #include "SJPCrawler.h"
 
-using namespace std;
-
 int main(void){
   SJPCrawler SJPC;
 
