@@ -30,11 +30,11 @@ bool cURLCpp::getPage(const string & URL){
   int attempt{MAX_ATTEMPTS};
   do {
     if(attempt < MAX_ATTEMPTS){
-if (attempt < 0){
-  cerr << "Error: Couldn't download " << URL << endl;
-  return false;
-}
-cerr << "Warning: site " << URL << " is empty. Attempting re-download (" << MAX_ATTEMPTS - attempt << " of " << MAX_ATTEMPTS << ")." << endl;
+      if (attempt < 0){
+        cerr << "Error: Couldn't download " << URL << endl;
+        return false;
+      }
+      cerr << "Warning: site " << URL << " is empty. Attempting re-download (" << MAX_ATTEMPTS - attempt << " of " << MAX_ATTEMPTS << ")." << endl;
     }
     attempt--;
     IcStr.clear();
